@@ -1,0 +1,1320 @@
+[
+  {
+    "id": "tab_sideban",
+    "type": "tab",
+    "label": "SIDEBAN",
+    "disabled": false,
+    "info": "Backend SIDEBAN: MQTT -> Dashboard + Telegram"
+  },
+  {
+    "id": "broker_sideban",
+    "type": "mqtt-broker",
+    "name": "Mosquitto lokal",
+    "broker": "localhost",
+    "port": "1883",
+    "clientid": "sideban-dashboard",
+    "autoConnect": true,
+    "usetls": false,
+    "verifyservercert": false,
+    "compatmode": false,
+    "protocolVersion": "4",
+    "keepalive": "30",
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthRetain": "false",
+    "birthPayload": "",
+    "birthMsg": {},
+    "closeTopic": "",
+    "closeQos": "0",
+    "closeRetain": "false",
+    "closePayload": "",
+    "closeMsg": {},
+    "willTopic": "",
+    "willQos": "0",
+    "willRetain": "false",
+    "willPayload": "",
+    "willMsg": {},
+    "userProps": "",
+    "sessionExpiry": ""
+  },
+  {
+    "id": "ui_base_sideban",
+    "type": "ui-base",
+    "name": "SIDEBAN",
+    "path": "/dashboard",
+    "appIcon": "",
+    "includeClientData": true,
+    "acceptsClientConfig": [
+      "ui-notification",
+      "ui-control"
+    ],
+    "showPathInSidebar": false,
+    "headerContent": "page",
+    "navigationStyle": "default",
+    "titleBarStyle": "default",
+    "showReconnectNotification": true,
+    "notificationDisplayTime": 1,
+    "showDisconnectNotification": true,
+    "allowInstall": false
+  },
+  {
+    "id": "ui_theme_sideban",
+    "type": "ui-theme",
+    "name": "Tema SIDEBAN",
+    "colors": {
+      "surface": "#1f4fb0",
+      "primary": "#1f4fb0",
+      "bgPage": "#eef2f7",
+      "groupBg": "#ffffff",
+      "groupOutline": "#cfd8e3"
+    },
+    "sizes": {
+      "density": "default",
+      "pagePadding": "12px",
+      "groupGap": "12px",
+      "groupBorderRadius": "8px",
+      "widgetGap": "12px"
+    }
+  },
+  {
+    "id": "ui_page_sideban",
+    "type": "ui-page",
+    "name": "Monitoring Titik 01",
+    "ui": "ui_base_sideban",
+    "path": "/sideban",
+    "icon": "home",
+    "layout": "grid",
+    "theme": "ui_theme_sideban",
+    "breakpoints": [
+      {
+        "name": "Default",
+        "px": 0,
+        "cols": 3
+      },
+      {
+        "name": "Tablet",
+        "px": 576,
+        "cols": 6
+      },
+      {
+        "name": "Small Desktop",
+        "px": 768,
+        "cols": 9
+      },
+      {
+        "name": "Desktop",
+        "px": 1024,
+        "cols": 12
+      }
+    ],
+    "tabs": [],
+    "order": 1,
+    "className": "",
+    "visible": "true",
+    "disabled": "false"
+  },
+  {
+    "id": "grp_status",
+    "type": "ui-group",
+    "name": "Status Banjir",
+    "page": "ui_page_sideban",
+    "width": "4",
+    "height": "1",
+    "order": 1,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default",
+    "keepLoaded": false,
+    "tab": ""
+  },
+  {
+    "id": "grp_air",
+    "type": "ui-group",
+    "name": "Ketinggian Air",
+    "page": "ui_page_sideban",
+    "width": "4",
+    "height": "1",
+    "order": 2,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default",
+    "keepLoaded": false,
+    "tab": ""
+  },
+  {
+    "id": "grp_hujan",
+    "type": "ui-group",
+    "name": "Hujan",
+    "page": "ui_page_sideban",
+    "width": "4",
+    "height": "1",
+    "order": 3,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default",
+    "keepLoaded": false,
+    "tab": ""
+  },
+  {
+    "id": "grp_grafik",
+    "type": "ui-group",
+    "name": "Riwayat 1 Jam Terakhir",
+    "page": "ui_page_sideban",
+    "width": "8",
+    "height": "1",
+    "order": 4,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default",
+    "keepLoaded": false,
+    "tab": ""
+  },
+  {
+    "id": "grp_kontrol",
+    "type": "ui-group",
+    "name": "Kontrol Buzzer",
+    "page": "ui_page_sideban",
+    "width": "4",
+    "height": "1",
+    "order": 5,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default",
+    "keepLoaded": false,
+    "tab": ""
+  },
+  {
+    "id": "grp_ambang",
+    "type": "ui-group",
+    "name": "Ubah Ambang Batas",
+    "page": "ui_page_sideban",
+    "width": "6",
+    "height": "1",
+    "order": 6,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default",
+    "keepLoaded": false,
+    "tab": ""
+  },
+  {
+    "id": "grp_tele",
+    "type": "ui-group",
+    "name": "Telegram",
+    "page": "ui_page_sideban",
+    "width": "4",
+    "height": "1",
+    "order": 7,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default",
+    "keepLoaded": false,
+    "tab": ""
+  },
+  {
+    "id": "grp_warga",
+    "type": "ui-group",
+    "name": "Warga & Batas Rumah",
+    "page": "ui_page_sideban",
+    "width": "8",
+    "height": "1",
+    "order": 8,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default",
+    "keepLoaded": false,
+    "tab": ""
+  },
+  {
+    "id": "tg_bot_sideban",
+    "type": "telegram bot",
+    "botname": "SidebanBot",
+    "usernames": "",
+    "chatids": "",
+    "baseapiurl": "",
+    "testenvironment": false,
+    "updatemode": "polling",
+    "addressfamily": "",
+    "pollinterval": "300",
+    "usesocks": false,
+    "sockshost": "",
+    "socksprotocol": "socks5",
+    "socksport": "6667",
+    "socksusername": "anonymous",
+    "sockspassword": "",
+    "bothost": "",
+    "botpath": "",
+    "localbothost": "0.0.0.0",
+    "localbotport": "8443",
+    "publicbotport": "8443",
+    "privatekey": "",
+    "certificate": "",
+    "useselfsignedcertificate": false,
+    "sslterminated": false,
+    "verboselogging": false
+  },
+  {
+    "id": "cmt_1",
+    "type": "comment",
+    "z": "tab_sideban",
+    "name": "1) Isi ADMIN_CHAT_ID di node 'Pengaturan admin', 2) isi token di node 'SidebanBot', 3) Deploy",
+    "info": "",
+    "x": 420,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "txt_warga",
+    "type": "ui-text",
+    "z": "tab_sideban",
+    "group": "grp_tele",
+    "order": 1,
+    "width": "0",
+    "height": "0",
+    "name": "Warga terdaftar",
+    "label": "Warga terdaftar",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": true,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "inj_set",
+    "type": "inject",
+    "z": "tab_sideban",
+    "name": "Saat deploy",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.5,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 150,
+    "y": 100,
+    "wires": [
+      [
+        "fn_set"
+      ]
+    ]
+  },
+  {
+    "id": "mqo_warga",
+    "type": "mqtt out",
+    "z": "tab_sideban",
+    "name": "warga/<kode>/batas (retain)",
+    "topic": "",
+    "qos": "1",
+    "retain": "true",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "broker_sideban",
+    "x": 1100,
+    "y": 1140,
+    "wires": []
+  },
+  {
+    "id": "txt_kat",
+    "type": "ui-text",
+    "z": "tab_sideban",
+    "group": "grp_warga",
+    "order": 1,
+    "width": "0",
+    "height": "0",
+    "name": "Per kategori",
+    "label": "Per kategori",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": true,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 1200,
+    "wires": []
+  },
+  {
+    "id": "tbl_warga",
+    "type": "ui-table",
+    "z": "tab_sideban",
+    "group": "grp_warga",
+    "name": "Tabel warga",
+    "label": "",
+    "order": 2,
+    "width": "0",
+    "height": "0",
+    "maxrows": 0,
+    "passthru": false,
+    "autocols": true,
+    "showSearch": true,
+    "deselect": true,
+    "selectionType": "none",
+    "columns": [],
+    "mobileBreakpoint": "sm",
+    "mobileBreakpointType": "defaults",
+    "action": "replace",
+    "className": "",
+    "x": 1050,
+    "y": 1240,
+    "wires": []
+  },
+  {
+    "id": "fn_tabel",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Tabel warga",
+    "func": "// Tabel warga untuk dashboard petugas (tanpa menampilkan Chat ID)\nconst warga = global.get('sideban_warga') || {};\nconst pelanggan = (global.get('sideban_pelanggan') || []).map(String);\nconst baris = Object.keys(warga).filter(id => pelanggan.includes(id)).map(id => {\n    const w = warga[id];\n    return {\n        'Kode': w.kode,\n        'Kategori rumah': w.kategori,\n        'Batas (cm)': w.batas_cm,\n        'Kondisi': w.terpicu ? '⚠️ Terlampaui' : '✅ Aman'\n    };\n}).sort((a, b) => a.Kode.localeCompare(b.Kode));\nconst hitung = {rendah: 0, sedang: 0, tinggi: 0, khusus: 0};\nfor (const b of baris) hitung[b['Kategori rumah']] = (hitung[b['Kategori rumah']] || 0) + 1;\nreturn [\n    {payload: baris},\n    {payload: `Rendah ${hitung.rendah} · Sedang ${hitung.sedang} · Tinggi ${hitung.tinggi} · Khusus ${hitung.khusus}`}\n];\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 780,
+    "y": 1220,
+    "wires": [
+      [
+        "tbl_warga"
+      ],
+      [
+        "txt_kat"
+      ]
+    ]
+  },
+  {
+    "id": "fn_set",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Pengaturan admin",
+    "func": "// ===== PENGATURAN BOT TELEGRAM =====\n// Isi dengan Chat ID petugas/admin (boleh lebih dari satu).\n// Cara tahu Chat ID: kirim /id ke bot kamu.\n// Hanya admin yang boleh /bisukan, /aktifkan, dan mengubah /ambang.\nconst ADMIN_CHAT_ID = [\n    // 123456789,\n];\n\n// ===== BATAS PRIBADI SESUAI KETINGGIAN RUMAH =====\n// Angka = jarak sensor ke permukaan air (cm). Makin kecil = air makin tinggi.\n// Warga rumah RENDAH diberi peringatan paling awal (jarak masih jauh).\n// Nilai ini untuk demo meja; sesuaikan setelah kalibrasi di lokasi.\nconst BATAS_RUMAH = {\n    rendah: 120,\n    sedang: 80,\n    tinggi: 40,\n};\n\nglobal.set('sideban_admin', ADMIN_CHAT_ID);\nglobal.set('sideban_batas_rumah', BATAS_RUMAH);\nconst pelanggan = global.get('sideban_pelanggan') || [];\nglobal.set('sideban_pelanggan', pelanggan);\n\n// Warga yang memilih kategori ikut memakai angka terbaru di atas\nconst warga = global.get('sideban_warga') || {};\nconst keMqtt = [];\nfor (const id of Object.keys(warga)) {\n    const w = warga[id];\n    if (BATAS_RUMAH[w.kategori] !== undefined && w.batas_cm !== BATAS_RUMAH[w.kategori]) {\n        w.batas_cm = BATAS_RUMAH[w.kategori];\n        w.terpicu = false;\n        keMqtt.push({topic: `sideban/titik01/warga/${w.kode}/batas`,\n                     payload: JSON.stringify({kategori: w.kategori, batas_cm: w.batas_cm})});\n    }\n}\nglobal.set('sideban_warga', warga);\n\nnode.status({fill: 'green', shape: 'dot', text: `admin: ${ADMIN_CHAT_ID.length}, warga: ${pelanggan.length}`});\nreturn [{payload: pelanggan.length}, keMqtt, {payload: 'refresh'}];\n",
+    "outputs": 3,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 380,
+    "y": 100,
+    "wires": [
+      [
+        "txt_warga"
+      ],
+      [
+        "mqo_warga"
+      ],
+      [
+        "fn_tabel"
+      ]
+    ]
+  },
+  {
+    "id": "txt_status",
+    "type": "ui-text",
+    "z": "tab_sideban",
+    "group": "grp_status",
+    "order": 1,
+    "width": "0",
+    "height": "0",
+    "name": "Status",
+    "label": "Status",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 22,
+    "color": "#717171",
+    "wrapText": true,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "txt_detail",
+    "type": "ui-text",
+    "z": "tab_sideban",
+    "group": "grp_status",
+    "order": 2,
+    "width": "0",
+    "height": "0",
+    "name": "Terakhir",
+    "label": "Terakhir",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": true,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 220,
+    "wires": []
+  },
+  {
+    "id": "txt_buzz",
+    "type": "ui-text",
+    "z": "tab_sideban",
+    "group": "grp_kontrol",
+    "order": 1,
+    "width": "0",
+    "height": "0",
+    "name": "Buzzer",
+    "label": "Buzzer",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": true,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "txt_ambang",
+    "type": "ui-text",
+    "z": "tab_sideban",
+    "group": "grp_ambang",
+    "order": 1,
+    "width": "0",
+    "height": "0",
+    "name": "Ambang aktif",
+    "label": "Ambang aktif",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": true,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 300,
+    "wires": []
+  },
+  {
+    "id": "ui_notif",
+    "type": "ui-notification",
+    "z": "tab_sideban",
+    "ui": "ui_base_sideban",
+    "position": "top right",
+    "colorDefault": true,
+    "color": "#000000",
+    "displayTime": "5",
+    "showCountdown": true,
+    "outputs": 1,
+    "allowDismiss": true,
+    "dismissText": "Tutup",
+    "allowConfirm": false,
+    "confirmText": "Confirm",
+    "showInput": false,
+    "inputType": "text",
+    "inputLabel": "",
+    "raw": false,
+    "className": "",
+    "name": "Notifikasi dashboard",
+    "x": 1080,
+    "y": 380,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "tg_send",
+    "type": "telegram sender",
+    "z": "tab_sideban",
+    "name": "Kirim Telegram",
+    "bot": "tg_bot_sideban",
+    "haserroroutput": false,
+    "outputs": 1,
+    "x": 1070,
+    "y": 440,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "fn_status",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Format status",
+    "func": "// Pesan status dari ESP32 (retained) -> teks dashboard\nconst s = msg.payload;\nif (typeof s !== 'object' || s === null || typeof s.level !== 'number') return null;\n\nglobal.set('sideban_status', s);\nglobal.set('sideban_status_waktu', Date.now());\n\nconst ikon = {AMAN: '🟢', SIAGA: '🟡', BAHAYA: '🔴'}[s.status] || '⚪';\nconst ambang = s.ambang || {};\nreturn [\n    {payload: `${ikon} ${s.status}`},\n    {payload: `${s.jarak_cm} cm · hujan ${s.hujan_persen}% (${s.hujan})`},\n    {payload: s.buzzer === 'MUTE' ? '🔕 Dibisukan' : '🔔 Otomatis'},\n    {payload: `Bahaya ≤ ${ambang.bahaya} cm · Siaga ≤ ${ambang.siaga} cm · Deras > ${ambang.deras}%`}\n];\n",
+    "outputs": 4,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 240,
+    "wires": [
+      [
+        "txt_status"
+      ],
+      [
+        "txt_detail"
+      ],
+      [
+        "txt_buzz"
+      ],
+      [
+        "txt_ambang"
+      ]
+    ]
+  },
+  {
+    "id": "fn_alert",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Peringatan banjir",
+    "func": "// Kirim peringatan saat status berubah.\n// Naik level (AMAN->SIAGA->BAHAYA) = langsung dikirim.\n// Turun level harus terbaca 2x berturut-turut, supaya tidak spam saat nilai naik-turun.\nconst s = msg.payload;\nif (!s || typeof s.level !== 'number') return null;\nconst L = s.level;\nconst terakhir = global.get('sideban_level_alert');\n\nif (terakhir === undefined) {          // pertama kali jalan: simpan saja\n    global.set('sideban_level_alert', L);\n    return null;\n}\nif (L === terakhir) {\n    context.set('pending', null);\n    return null;\n}\nif (L < terakhir && context.get('pending') !== L) {\n    context.set('pending', L);\n    return null;\n}\ncontext.set('pending', null);\nglobal.set('sideban_level_alert', L);\n\nconst waktu = new Date().toLocaleString('id-ID', {timeZone: 'Asia/Jakarta'});\nlet teks;\nif (L === 2) {\n    teks = `🚨 BAHAYA BANJIR - Titik 01\\n` +\n           `Jarak sensor ke air: ${s.jarak_cm} cm\\n` +\n           `Hujan: ${s.hujan_persen}% (${s.hujan})\\n` +\n           `Waktu: ${waktu}\\n\\n` +\n           `Amankan barang dan dokumen penting, siapkan evakuasi, dan ikuti arahan petugas.`;\n} else if (L === 1) {\n    teks = `⚠️ SIAGA - Titik 01\\n` +\n           `Jarak sensor ke air: ${s.jarak_cm} cm\\n` +\n           `Hujan: ${s.hujan_persen}% (${s.hujan})\\n` +\n           `Waktu: ${waktu}\\n\\n` +\n           `Air mulai naik atau hujan deras. Pantau terus perkembangan.`;\n} else {\n    teks = `✅ Kembali AMAN - Titik 01\\n` +\n           `Jarak sensor ke air: ${s.jarak_cm} cm\\n` +\n           `Waktu: ${waktu}`;\n}\n\nconst pelanggan = global.get('sideban_pelanggan') || [];\nconst keTelegram = pelanggan.map(id => ({payload: {chatId: id, type: 'message', content: teks}}));\nnode.status({fill: L === 2 ? 'red' : (L === 1 ? 'yellow' : 'green'), shape: 'dot',\n             text: `${s.status} -> ${pelanggan.length} warga`});\nreturn [keTelegram, {payload: teks.split('\\n')[0]}];\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 340,
+    "wires": [
+      [
+        "tg_send"
+      ],
+      [
+        "ui_notif"
+      ]
+    ]
+  },
+  {
+    "id": "mq_status",
+    "type": "mqtt in",
+    "z": "tab_sideban",
+    "name": "status",
+    "topic": "sideban/titik01/status",
+    "qos": "1",
+    "datatype": "json",
+    "broker": "broker_sideban",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 140,
+    "y": 280,
+    "wires": [
+      [
+        "fn_status",
+        "fn_alert"
+      ]
+    ]
+  },
+  {
+    "id": "txt_dev",
+    "type": "ui-text",
+    "z": "tab_sideban",
+    "group": "grp_status",
+    "order": 3,
+    "width": "0",
+    "height": "0",
+    "name": "Perangkat",
+    "label": "Perangkat",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": true,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "fn_dev",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Online / offline",
+    "func": "// online / offline dari Last Will ESP32\nconst st = String(msg.payload).trim().toLowerCase();\nconst sebelum = global.get('sideban_perangkat');\nglobal.set('sideban_perangkat', st);\n\nconst ui = {payload: st === 'online' ? '✅ Online' : '❌ Offline'};\nif (sebelum === undefined || sebelum === st) return [ui, null];\n\nconst teks = st === 'online'\n    ? '✅ Perangkat SIDEBAN titik 01 kembali online.'\n    : '❌ Perangkat SIDEBAN titik 01 OFFLINE (listrik atau WiFi putus). Data tidak terpantau sampai perangkat online lagi.';\nconst admin = global.get('sideban_admin') || [];\nreturn [ui, admin.map(id => ({payload: {chatId: id, type: 'message', content: teks}}))];\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 520,
+    "wires": [
+      [
+        "txt_dev"
+      ],
+      [
+        "tg_send"
+      ]
+    ]
+  },
+  {
+    "id": "mq_dev",
+    "type": "mqtt in",
+    "z": "tab_sideban",
+    "name": "perangkat",
+    "topic": "sideban/titik01/perangkat",
+    "qos": "1",
+    "datatype": "utf8",
+    "broker": "broker_sideban",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 140,
+    "y": 520,
+    "wires": [
+      [
+        "fn_dev"
+      ]
+    ]
+  },
+  {
+    "id": "g_air",
+    "type": "ui-gauge",
+    "z": "tab_sideban",
+    "name": "Jarak sensor ke air",
+    "group": "grp_air",
+    "order": 1,
+    "width": "4",
+    "height": "3",
+    "gtype": "gauge-half",
+    "gstyle": "needle",
+    "title": "Jarak sensor ke air",
+    "alwaysShowTitle": false,
+    "floatingTitlePosition": "top-left",
+    "units": "cm",
+    "icon": "",
+    "prefix": "",
+    "suffix": "",
+    "segments": [
+      {
+        "from": "0",
+        "color": "#d62828"
+      },
+      {
+        "from": "21",
+        "color": "#e0b000"
+      },
+      {
+        "from": "101",
+        "color": "#2e9e44"
+      }
+    ],
+    "min": 0,
+    "max": 400,
+    "sizeThickness": 16,
+    "sizeGap": 4,
+    "sizeKeyThickness": 8,
+    "styleRounded": true,
+    "styleGlow": false,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 580,
+    "wires": []
+  },
+  {
+    "id": "c_air",
+    "type": "ui-chart",
+    "z": "tab_sideban",
+    "group": "grp_grafik",
+    "name": "Jarak air (cm)",
+    "label": "Jarak air (cm)",
+    "order": 1,
+    "chartType": "line",
+    "category": "topic",
+    "categoryType": "msg",
+    "xAxisLabel": "",
+    "xAxisProperty": "",
+    "xAxisPropertyType": "timestamp",
+    "xAxisType": "time",
+    "xAxisFormat": "",
+    "xAxisFormatType": "auto",
+    "xmin": "",
+    "xmax": "",
+    "yAxisLabel": "cm",
+    "yAxisProperty": "payload",
+    "yAxisPropertyType": "msg",
+    "ymin": "0",
+    "ymax": "",
+    "bins": 10,
+    "action": "append",
+    "stackSeries": false,
+    "pointShape": "circle",
+    "pointRadius": 3,
+    "showLegend": false,
+    "removeOlder": 1,
+    "removeOlderUnit": "3600",
+    "removeOlderPoints": "",
+    "colors": [
+      "#1f77b4",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "textColor": [
+      "#666666"
+    ],
+    "textColorDefault": true,
+    "gridColor": [
+      "#e5e5e5"
+    ],
+    "gridColorDefault": true,
+    "width": "4",
+    "height": "4",
+    "className": "",
+    "interpolation": "linear",
+    "x": 1050,
+    "y": 620,
+    "wires": []
+  },
+  {
+    "id": "fn_air",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Ambil jarak",
+    "func": "const j = Number(msg.payload && msg.payload.jarak_cm);\nif (!Number.isFinite(j)) return null;\nreturn {payload: j, topic: 'Jarak (cm)'};\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 600,
+    "wires": [
+      [
+        "g_air",
+        "c_air"
+      ]
+    ]
+  },
+  {
+    "id": "mq_air",
+    "type": "mqtt in",
+    "z": "tab_sideban",
+    "name": "sensor/air",
+    "topic": "sideban/titik01/sensor/air",
+    "qos": "1",
+    "datatype": "json",
+    "broker": "broker_sideban",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 140,
+    "y": 600,
+    "wires": [
+      [
+        "fn_air",
+        "fn_pribadi"
+      ]
+    ]
+  },
+  {
+    "id": "g_hujan",
+    "type": "ui-gauge",
+    "z": "tab_sideban",
+    "name": "Intensitas hujan",
+    "group": "grp_hujan",
+    "order": 1,
+    "width": "4",
+    "height": "3",
+    "gtype": "gauge-half",
+    "gstyle": "needle",
+    "title": "Intensitas hujan",
+    "alwaysShowTitle": false,
+    "floatingTitlePosition": "top-left",
+    "units": "%",
+    "icon": "",
+    "prefix": "",
+    "suffix": "",
+    "segments": [
+      {
+        "from": "0",
+        "color": "#2e9e44"
+      },
+      {
+        "from": "66",
+        "color": "#e0b000"
+      }
+    ],
+    "min": 0,
+    "max": 100,
+    "sizeThickness": 16,
+    "sizeGap": 4,
+    "sizeKeyThickness": 8,
+    "styleRounded": true,
+    "styleGlow": false,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 680,
+    "wires": []
+  },
+  {
+    "id": "c_hujan",
+    "type": "ui-chart",
+    "z": "tab_sideban",
+    "group": "grp_grafik",
+    "name": "Hujan (%)",
+    "label": "Hujan (%)",
+    "order": 2,
+    "chartType": "line",
+    "category": "topic",
+    "categoryType": "msg",
+    "xAxisLabel": "",
+    "xAxisProperty": "",
+    "xAxisPropertyType": "timestamp",
+    "xAxisType": "time",
+    "xAxisFormat": "",
+    "xAxisFormatType": "auto",
+    "xmin": "",
+    "xmax": "",
+    "yAxisLabel": "%",
+    "yAxisProperty": "payload",
+    "yAxisPropertyType": "msg",
+    "ymin": "0",
+    "ymax": "100",
+    "bins": 10,
+    "action": "append",
+    "stackSeries": false,
+    "pointShape": "circle",
+    "pointRadius": 3,
+    "showLegend": false,
+    "removeOlder": 1,
+    "removeOlderUnit": "3600",
+    "removeOlderPoints": "",
+    "colors": [
+      "#2ca02c",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "textColor": [
+      "#666666"
+    ],
+    "textColorDefault": true,
+    "gridColor": [
+      "#e5e5e5"
+    ],
+    "gridColorDefault": true,
+    "width": "4",
+    "height": "4",
+    "className": "",
+    "interpolation": "linear",
+    "x": 1050,
+    "y": 720,
+    "wires": []
+  },
+  {
+    "id": "txt_hujan",
+    "type": "ui-text",
+    "z": "tab_sideban",
+    "group": "grp_hujan",
+    "order": 2,
+    "width": "0",
+    "height": "0",
+    "name": "Kategori",
+    "label": "Kategori",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": true,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 1050,
+    "y": 760,
+    "wires": []
+  },
+  {
+    "id": "fn_hujan",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Ambil hujan",
+    "func": "const h = msg.payload || {};\nconst p = Number(h.persen);\nif (!Number.isFinite(p)) return null;\nreturn [{payload: p, topic: 'Hujan (%)'}, {payload: `${h.kategori} (ADC ${h.adc})`}];\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 700,
+    "wires": [
+      [
+        "g_hujan",
+        "c_hujan"
+      ],
+      [
+        "txt_hujan"
+      ]
+    ]
+  },
+  {
+    "id": "mq_hujan",
+    "type": "mqtt in",
+    "z": "tab_sideban",
+    "name": "sensor/hujan",
+    "topic": "sideban/titik01/sensor/hujan",
+    "qos": "1",
+    "datatype": "json",
+    "broker": "broker_sideban",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 140,
+    "y": 700,
+    "wires": [
+      [
+        "fn_hujan"
+      ]
+    ]
+  },
+  {
+    "id": "mqo_buzz",
+    "type": "mqtt out",
+    "z": "tab_sideban",
+    "name": "perintah/buzzer",
+    "topic": "sideban/titik01/perintah/buzzer",
+    "qos": "1",
+    "retain": "false",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "broker_sideban",
+    "x": 1080,
+    "y": 840,
+    "wires": []
+  },
+  {
+    "id": "mqo_ambang",
+    "type": "mqtt out",
+    "z": "tab_sideban",
+    "name": "perintah/ambang (retain)",
+    "topic": "sideban/titik01/perintah/ambang",
+    "qos": "1",
+    "retain": "true",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "broker_sideban",
+    "x": 1100,
+    "y": 940,
+    "wires": []
+  },
+  {
+    "id": "btn_mute",
+    "type": "ui-button",
+    "z": "tab_sideban",
+    "group": "grp_kontrol",
+    "name": "Bisukan buzzer",
+    "label": "Bisukan buzzer",
+    "order": 2,
+    "width": "2",
+    "height": "1",
+    "emulateClick": false,
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "iconPosition": "left",
+    "payload": "MUTE",
+    "payloadType": "str",
+    "topic": "topic",
+    "topicType": "msg",
+    "buttonColor": "#d62828",
+    "textColor": "",
+    "iconColor": "",
+    "enableClick": true,
+    "enablePointerdown": false,
+    "pointerdownPayload": "",
+    "pointerdownPayloadType": "str",
+    "enablePointerup": false,
+    "pointerupPayload": "",
+    "pointerupPayloadType": "str",
+    "x": 150,
+    "y": 820,
+    "wires": [
+      [
+        "mqo_buzz"
+      ]
+    ]
+  },
+  {
+    "id": "btn_auto",
+    "type": "ui-button",
+    "z": "tab_sideban",
+    "group": "grp_kontrol",
+    "name": "Buzzer otomatis",
+    "label": "Buzzer otomatis",
+    "order": 3,
+    "width": "2",
+    "height": "1",
+    "emulateClick": false,
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "iconPosition": "left",
+    "payload": "AUTO",
+    "payloadType": "str",
+    "topic": "topic",
+    "topicType": "msg",
+    "buttonColor": "#2e9e44",
+    "textColor": "",
+    "iconColor": "",
+    "enableClick": true,
+    "enablePointerdown": false,
+    "pointerdownPayload": "",
+    "pointerdownPayloadType": "str",
+    "enablePointerup": false,
+    "pointerupPayload": "",
+    "pointerupPayloadType": "str",
+    "x": 150,
+    "y": 860,
+    "wires": [
+      [
+        "mqo_buzz"
+      ]
+    ]
+  },
+  {
+    "id": "form_ambang",
+    "type": "ui-form",
+    "z": "tab_sideban",
+    "name": "Form ambang",
+    "group": "grp_ambang",
+    "label": "",
+    "order": 2,
+    "width": "0",
+    "height": "0",
+    "options": [
+      {
+        "label": "Bahaya jika jarak ≤ (cm)",
+        "key": "bahaya",
+        "type": "number",
+        "required": true,
+        "rows": null
+      },
+      {
+        "label": "Siaga jika jarak ≤ (cm)",
+        "key": "siaga",
+        "type": "number",
+        "required": true,
+        "rows": null
+      },
+      {
+        "label": "Hujan deras jika > (%)",
+        "key": "deras",
+        "type": "number",
+        "required": true,
+        "rows": null
+      }
+    ],
+    "formValue": {
+      "bahaya": "",
+      "siaga": "",
+      "deras": ""
+    },
+    "payload": "",
+    "submit": "Simpan",
+    "cancel": "Kosongkan",
+    "resetOnSubmit": false,
+    "topic": "topic",
+    "topicType": "msg",
+    "splitLayout": "",
+    "className": "",
+    "passthru": false,
+    "dropdownOptions": [],
+    "x": 150,
+    "y": 940,
+    "wires": [
+      [
+        "fn_form"
+      ]
+    ]
+  },
+  {
+    "id": "fn_form",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Validasi ambang",
+    "func": "function validasiAmbang(b, s, d) {\n    if (![b, s, d].every(Number.isInteger)) return 'Semua nilai harus bilangan bulat.';\n    if (b < 2) return 'Ambang bahaya minimal 2 cm.';\n    if (s <= b) return 'Ambang siaga harus lebih besar dari ambang bahaya.';\n    if (s > 400) return 'Ambang siaga maksimal 400 cm.';\n    if (d <= 15 || d > 100) return 'Batas hujan deras harus 16-100 %.';\n    return null;\n}\n\nconst b = Number(msg.payload.bahaya);\nconst s = Number(msg.payload.siaga);\nconst d = Number(msg.payload.deras);\nconst salah = validasiAmbang(b, s, d);\nif (salah) return [null, {payload: '❌ ' + salah}];\nreturn [\n    {payload: JSON.stringify({bahaya: b, siaga: s, deras: d})},\n    {payload: `✅ Ambang dikirim: bahaya ≤ ${b} cm, siaga ≤ ${s} cm, deras > ${d}%`}\n];\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 940,
+    "wires": [
+      [
+        "mqo_ambang"
+      ],
+      [
+        "ui_notif"
+      ]
+    ]
+  },
+  {
+    "id": "tg_in",
+    "type": "telegram receiver",
+    "z": "tab_sideban",
+    "name": "Pesan masuk",
+    "bot": "tg_bot_sideban",
+    "saveDataDir": "",
+    "filterCommands": false,
+    "hasinput": false,
+    "inputs": 0,
+    "handleallupdates": false,
+    "handleprocessupdates": false,
+    "x": 140,
+    "y": 1040,
+    "wires": [
+      [
+        "fn_tg"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "fn_tg",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Perintah Telegram",
+    "func": "function validasiAmbang(b, s, d) {\n    if (![b, s, d].every(Number.isInteger)) return 'Semua nilai harus bilangan bulat.';\n    if (b < 2) return 'Ambang bahaya minimal 2 cm.';\n    if (s <= b) return 'Ambang siaga harus lebih besar dari ambang bahaya.';\n    if (s > 400) return 'Ambang siaga maksimal 400 cm.';\n    if (d <= 15 || d > 100) return 'Batas hujan deras harus 16-100 %.';\n    return null;\n}\n\n// Output: 1 balasan Telegram | 2 perintah buzzer | 3 perintah ambang | 4 jumlah warga\n//         5 batas warga ke MQTT | 6 segarkan tabel warga\nconst p = msg.payload || {};\nif (p.type !== 'message' || typeof p.content !== 'string') return null;\n\nconst chatId = p.chatId;\nconst bagian = p.content.trim().split(/\\s+/);\nconst perintah = (bagian[0] || '').toLowerCase().replace(/@.*$/, '');\nconst arg = bagian.slice(1);\nconst admin = (global.get('sideban_admin') || []).map(String).includes(String(chatId));\nlet pelanggan = global.get('sideban_pelanggan') || [];\nconst balas = isi => ({payload: {chatId: chatId, type: 'message', content: isi}});\nconst out = [null, null, null, null, null, null];\nconst BATAS_RUMAH = global.get('sideban_batas_rumah') || {rendah: 120, sedang: 80, tinggi: 40};\nlet warga = global.get('sideban_warga') || {};\nconst kunci = String(chatId);\n\nfunction daftarkan() {\n    if (!pelanggan.includes(chatId)) {\n        pelanggan.push(chatId);\n        global.set('sideban_pelanggan', pelanggan);\n    }\n    out[3] = {payload: pelanggan.length};\n}\nfunction simpanBatas(kategori, batas) {\n    let w = warga[kunci];\n    if (!w) {\n        const urut = (global.get('sideban_warga_urut') || 0) + 1;\n        global.set('sideban_warga_urut', urut);\n        w = {kode: 'W' + String(urut).padStart(3, '0'), chatId: chatId};\n    }\n    w.kategori = kategori;\n    w.batas_cm = batas;\n    w.terpicu = false;\n    w.diubah = Date.now();\n    warga[kunci] = w;\n    global.set('sideban_warga', warga);\n    daftarkan();\n    out[4] = {topic: `sideban/titik01/warga/${w.kode}/batas`,\n              payload: JSON.stringify({kategori: kategori, batas_cm: batas})};\n    out[5] = {payload: 'refresh'};\n    return w;\n}\nfunction teksBatasku() {\n    const w = warga[kunci];\n    if (!w) return 'Kamu belum mengatur batas rumah.';\n    return `Kode warga: ${w.kode}\\nKategori rumah: ${w.kategori}\\n` +\n           `Peringatan pribadi saat jarak sensor ke air ≤ ${w.batas_cm} cm`;\n}\n\nconst BANTUAN =\n    'SIDEBAN - Sistem Deteksi Dini Banjir 🌊\\n\\n' +\n    'Untuk warga:\\n' +\n    '/daftar - terima peringatan banjir\\n' +\n    '/berhenti - berhenti menerima peringatan\\n' +\n    '/status - lihat kondisi terkini\\n' +\n    '/id - lihat Chat ID kamu\\n' +\n    '/rumah rendah | sedang | tinggi - atur batas sesuai ketinggian rumah\\n' +\n    '/batas 90 - atur batas sendiri (cm)\\n' +\n    '/rumah - lihat batas rumah kamu\\n\\n' +\n    'Untuk petugas (admin):\\n' +\n    '/bisukan - matikan buzzer di lokasi\\n' +\n    '/aktifkan - nyalakan buzzer otomatis lagi\\n' +\n    '/ambang - lihat ambang batas\\n' +\n    '/ambang 20 100 65 - ubah ambang (bahaya cm, siaga cm, deras %)';\nconst TOLAK = '⛔ Perintah ini khusus petugas. Minta petugas menambahkan Chat ID kamu (' + chatId + ').';\n\nfunction teksStatus() {\n    const s = global.get('sideban_status');\n    const perangkat = global.get('sideban_perangkat') || 'tidak diketahui';\n    if (!s) return 'Belum ada data dari perangkat.';\n    const detik = Math.round((Date.now() - (global.get('sideban_status_waktu') || Date.now())) / 1000);\n    const ikon = {AMAN: '🟢', SIAGA: '🟡', BAHAYA: '🔴'}[s.status] || '⚪';\n    return `${ikon} Status: ${s.status}\\n` +\n           `Jarak sensor ke air: ${s.jarak_cm} cm\\n` +\n           `Hujan: ${s.hujan_persen}% (${s.hujan})\\n` +\n           `Buzzer: ${s.buzzer === 'MUTE' ? 'dibisukan' : 'otomatis'}\\n` +\n           `Perangkat: ${perangkat}\\n` +\n           `Diperbarui ${detik} detik lalu` +\n           (warga[kunci] ? `\\n\\nBatas rumah kamu (${warga[kunci].kategori}): ${warga[kunci].batas_cm} cm` +\n               (s.jarak_cm <= warga[kunci].batas_cm ? ' ⚠️ SUDAH TERLAMPAUI' : ' (belum terlampaui)') : '');\n}\n\nswitch (perintah) {\n    case '/start':\n    case '/bantuan':\n    case '/help':\n        out[0] = balas(BANTUAN);\n        break;\n    case '/id':\n        out[0] = balas(`Chat ID kamu: ${chatId}` + (admin ? ' (admin)' : ''));\n        break;\n    case '/daftar':\n        daftarkan();\n        out[0] = balas('✅ Kamu terdaftar. Peringatan banjir titik 01 akan dikirim ke chat ini.\\n\\n' +\n                       'Atur juga batas sesuai ketinggian rumahmu supaya dapat peringatan pribadi:\\n' +\n                       '/rumah rendah, /rumah sedang, atau /rumah tinggi');\n        break;\n    case '/rumah': {\n        const pilihan = (arg[0] || '').toLowerCase();\n        if (!pilihan) {\n            out[0] = balas(teksBatasku() + '\\n\\nPilihan:\\n' +\n                `/rumah rendah - lantai rumah rendah / dekat sungai (peringatan saat ≤ ${BATAS_RUMAH.rendah} cm)\\n` +\n                `/rumah sedang - (peringatan saat ≤ ${BATAS_RUMAH.sedang} cm)\\n` +\n                `/rumah tinggi - lantai rumah tinggi (peringatan saat ≤ ${BATAS_RUMAH.tinggi} cm)\\n` +\n                '/batas 90 - atur angka sendiri');\n            break;\n        }\n        if (BATAS_RUMAH[pilihan] === undefined) {\n            out[0] = balas('Pilihan tidak dikenal. Gunakan /rumah rendah, /rumah sedang, atau /rumah tinggi.');\n            break;\n        }\n        simpanBatas(pilihan, BATAS_RUMAH[pilihan]);\n        out[0] = balas('✅ Batas rumah disimpan.\\n' + teksBatasku() +\n                       '\\nKamu juga tetap menerima peringatan umum SIAGA/BAHAYA.');\n        break;\n    }\n    case '/batas': {\n        if (arg.length === 0) { out[0] = balas(teksBatasku()); break; }\n        const cm = Number(arg[0]);\n        if (!Number.isInteger(cm) || cm < 2 || cm > 400) {\n            out[0] = balas('Batas harus bilangan bulat 2-400 cm. Contoh: /batas 90');\n            break;\n        }\n        simpanBatas('khusus', cm);\n        out[0] = balas('✅ Batas pribadi disimpan.\\n' + teksBatasku());\n        break;\n    }\n    case '/berhenti':\n        pelanggan = pelanggan.filter(id => id !== chatId);\n        global.set('sideban_pelanggan', pelanggan);\n        if (warga[kunci]) {\n            out[4] = {topic: `sideban/titik01/warga/${warga[kunci].kode}/batas`, payload: ''};  // hapus retained\n            delete warga[kunci];\n            global.set('sideban_warga', warga);\n        }\n        out[5] = {payload: 'refresh'};\n        out[0] = balas('Kamu tidak akan menerima peringatan lagi. Ketik /daftar untuk mendaftar ulang.');\n        out[3] = {payload: pelanggan.length};\n        break;\n    case '/status':\n        out[0] = balas(teksStatus());\n        break;\n    case '/bisukan':\n        if (!admin) { out[0] = balas(TOLAK); break; }\n        out[1] = {payload: 'MUTE'};\n        out[0] = balas('🔕 Buzzer dibisukan. Buzzer otomatis aktif lagi setelah status kembali AMAN.');\n        break;\n    case '/aktifkan':\n        if (!admin) { out[0] = balas(TOLAK); break; }\n        out[1] = {payload: 'AUTO'};\n        out[0] = balas('🔔 Buzzer kembali otomatis.');\n        break;\n    case '/ambang': {\n        const s = global.get('sideban_status');\n        if (arg.length === 0) {\n            const a = (s && s.ambang) || {};\n            out[0] = balas(`Ambang saat ini:\\nBahaya: jarak ≤ ${a.bahaya} cm\\nSiaga: jarak ≤ ${a.siaga} cm\\nHujan deras: > ${a.deras}%`);\n            break;\n        }\n        if (!admin) { out[0] = balas(TOLAK); break; }\n        if (arg.length !== 3) { out[0] = balas('Format: /ambang <bahaya cm> <siaga cm> <deras %>\\nContoh: /ambang 20 100 65'); break; }\n        const [b, sg, d] = arg.map(Number);\n        const salah = validasiAmbang(b, sg, d);\n        if (salah) { out[0] = balas('❌ ' + salah); break; }\n        out[2] = {payload: JSON.stringify({bahaya: b, siaga: sg, deras: d})};\n        out[0] = balas(`✅ Ambang baru dikirim: bahaya ≤ ${b} cm, siaga ≤ ${sg} cm, deras > ${d}%`);\n        break;\n    }\n    default:\n        out[0] = balas('Perintah tidak dikenal. Ketik /bantuan untuk daftar perintah.');\n}\nreturn out;\n",
+    "outputs": 6,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 1040,
+    "wires": [
+      [
+        "tg_send"
+      ],
+      [
+        "mqo_buzz"
+      ],
+      [
+        "mqo_ambang"
+      ],
+      [
+        "txt_warga"
+      ],
+      [
+        "mqo_warga"
+      ],
+      [
+        "fn_tabel"
+      ]
+    ]
+  },
+  {
+    "id": "fn_pribadi",
+    "type": "function",
+    "z": "tab_sideban",
+    "name": "Peringatan batas rumah",
+    "func": "// Peringatan pribadi: bandingkan jarak air dengan batas rumah tiap warga.\n// Dikirim sekali saat batas terlampaui, dan sekali saat air turun lagi\n// (turun = jarak > batas + 5 cm, supaya tidak spam saat air naik-turun).\nconst j = Number(msg.payload && msg.payload.jarak_cm);\nif (!Number.isFinite(j)) return null;\nconst JEDA_CM = 5;\nconst warga = global.get('sideban_warga') || {};\nconst pelanggan = (global.get('sideban_pelanggan') || []).map(String);\nconst waktu = new Date().toLocaleString('id-ID', {timeZone: 'Asia/Jakarta'});\nconst kirim = [];\nlet berubah = false;\n\nfor (const id of Object.keys(warga)) {\n    const w = warga[id];\n    if (!pelanggan.includes(id)) continue;\n    if (!w.terpicu && j <= w.batas_cm) {\n        w.terpicu = true; berubah = true;\n        kirim.push({payload: {chatId: w.chatId, type: 'message', content:\n            `🏠⚠️ PERINGATAN UNTUK RUMAHMU\\n` +\n            `Air sudah mencapai batas rumah kamu (kategori ${w.kategori}, batas ${w.batas_cm} cm).\\n` +\n            `Jarak sensor ke air sekarang: ${j} cm\\nWaktu: ${waktu}\\n\\n` +\n            `Segera amankan barang di lantai bawah dan pantau terus.`}});\n    } else if (w.terpicu && j > w.batas_cm + JEDA_CM) {\n        w.terpicu = false; berubah = true;\n        kirim.push({payload: {chatId: w.chatId, type: 'message', content:\n            `🏠✅ Air sudah turun di bawah batas rumah kamu.\\n` +\n            `Jarak sensor ke air sekarang: ${j} cm\\nWaktu: ${waktu}`}});\n    }\n}\nif (!berubah) return null;\nglobal.set('sideban_warga', warga);\nnode.status({fill: 'blue', shape: 'dot', text: `${kirim.length} pesan pribadi`});\nreturn [kirim, {payload: 'refresh'}];\n",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 1180,
+    "wires": [
+      [
+        "tg_send"
+      ],
+      [
+        "fn_tabel"
+      ]
+    ]
+  }
+]
